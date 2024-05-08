@@ -1,0 +1,56 @@
+.img
+{
+
+}
+
+h1
+{
+    font-size: 60px;
+    color: #009090;
+}
+
+p
+{
+    padding-bottom: 0px;
+
+}
+
+div{
+    display: inline;
+}
+
+.green{
+    background-color: green;
+}
+
+.red{
+    background-color: red;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.purple{
+    background-color: purple;
+}
+
+.orange{
+   background-color: orange;
+}
+
+
+
+
+#Button_1 {
+    color: crimson;
+}
+#Paragraph_1{
+    color: brown;
+}
+#Paragraph_2{
+    color: blue;
+}
+#Paragraph_3{
+    color: mediumvioletred;
+}
