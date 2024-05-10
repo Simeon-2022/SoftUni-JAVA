@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap');
+thead {
+    font-family: Montserrat ;
+    background-color: cyan;
+    text-align: center;
+}
+th {
+    border: 1px solid darkgrey;
+    padding: 5px 45px;
+}
+
+td {
+    border: 1px solid darkgrey;
+
+}
+button {
+    border-radius: 20px;
+    border: 2px solid grey;
+    padding: 8px 14px;
+    font-family: Helvetica, sans-serif;
+    background-color: transparent;
+}
+
+.filled button, .icon button{
+    background-color: black;
+    color: white;
+}
+
+.icon button img{
+    background-color: black;
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    width: 15px;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: green;
+    cursor: pointer;
+    border: 1px solid green;
+}
+
+
+
+
+#main_zad_3 {
+    background-color: #DDDDDD;
+    border: 1px solid black;
+    padding: 25px 10px;
+    max-width: 810px;
+}
+
+#main_zad_4 {
+    background-color: cyan;
+    border: 1px solid black;
+    padding: 30px 20px 25px;
+}
+
+#main_zad_5 {
+    text-align: center;
+}
+
+.body_zad_8 {
+background-color: lightgray;
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+#h1_zad_5 {
+    color: darkgray;
+    font-family: "Times New Roman", serif;
+}
+
+.body_zad_8{
+    background-color: lightgray;
+}
+
+.body_zad_9 {
+    padding: 10px 75px;
+}
+.body_zad_9 ol
+
+
+#h3_zad_5 {
+    color: #000;
+    font-family: Arial;
+    font-style: italic;
+}
+
+.h2_zad_6 {
+    color: white;
+    background-color: #3C516B;
+    text-decoration: underline;
+    letter-spacing: 5px;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+p {
+    padding-bottom: 0px;
+
+}
+
+#p_zad_5 {
+    font-family: Montserrat, Arial;
+    color: gray;
+    margin-top: 20px;
+}
+
+div {
+    display: inline;
+
+}
+
+header {
+    font-stretch: ultra-expanded;
+    font-size: x-small;
+}
+
+#modern {
+    background-color: lightgreen;
+}
+
+.modern {
+    background-color: palevioletred;
+}
+
+b.modern {
+    background-color: lightgreen;
+}
+
+#section_01 {
+    background-color: #DDDDDD;
+    color: firebrick;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid black;
+}
+
+#section_02 {
+    background-color: #DDDDDD;
+    color: firebrick;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid black;
+}
+
+.sec_zad_9 h2 {
+    font-family: Luxurious Script;
+    font-size: 55px;
+    margin-bottom: 1px;
+}
+.sec_zad_9 ol li {
+    padding-bottom: 5px;
+}
+
+.sec_zad_9 p {
+    font-family: Montserrat;
+
+}
+
+
+.article {
+    background-color: deepskyblue;
+}
+
+.article_zad_4 {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 44px;
+}
+
+#section_zad_4 {
+    margin: 40px;
+}
+
+/*section article {
+    border: 1px solid black;
+    margin: 6px;
+}
+
+section img, article p {
+    padding: 10px;
+    display: inline-block;
+    vertical-align: middle;
+
+
+}
+
+section article p {
+    font-width: bold;
+    color: black;
+
+}*/
+
+.par_zed_4 {
+    text-transform: uppercase;
+}
+
+ul {
+    padding-bottom: 15px;
+    margin-block-end: 1px;
+
+
+}
+
+footer {
+    padding-top: 20px;
+}
+
+.brick {
+    color: firebrick;
+}
+
+
+.blue {
+    background-color: blue;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.orange {
+    background-color: orange;
+}
+
+
+#Button_1 {
+    color: crimson;
+}
+
+#Paragraph_1 {
+    color: brown;
+}
+
+#Paragraph_2 {
+    color: blue;
+}
+
+#Paragraph_3 {
+    color: mediumvioletred;
+}

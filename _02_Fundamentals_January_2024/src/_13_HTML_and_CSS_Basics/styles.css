@@ -17,8 +17,11 @@ p
 
 div{
     display: inline;
+    margin: 0px;
 }
-
+#modern {
+    background-color: blueviolet;
+}
 .green{
     background-color: green;
 }
