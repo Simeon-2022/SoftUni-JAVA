@@ -253,6 +253,10 @@ ul {
 
 }
 
+#list_zad_12 {
+    list-style-type: none;
+}
+
 footer {
     padding-top: 20px;
 }
