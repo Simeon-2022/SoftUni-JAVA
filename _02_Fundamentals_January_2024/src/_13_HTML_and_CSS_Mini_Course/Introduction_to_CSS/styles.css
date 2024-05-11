@@ -16,13 +16,23 @@ td {
     border: 1px solid darkgrey;
 
 }
-button {
+.nav_container {
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    max-width: 350px;
+    font-family: Arial, serif;
+    color: firebrick;
+}
+
+
+
+/*button {
     border-radius: 20px;
     border: 2px solid grey;
     padding: 8px 14px;
     font-family: Helvetica, sans-serif;
     background-color: transparent;
-}
+}*/
 
 .filled button, .icon button{
     background-color: black;
@@ -223,6 +233,8 @@ b.modern {
 
 }
 
+
+
 /*section article {
     border: 1px solid black;
     margin: 6px;
@@ -253,9 +265,6 @@ ul {
 
 }
 
-#list_zad_12 {
-    list-style-type: none;
-}
 
 footer {
     padding-top: 20px;

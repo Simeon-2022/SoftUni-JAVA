@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+
+.nav_container {
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    max-width: 300px;
+    font-family: Arial, serif;
+    margin-bottom:45px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+
+}
+
+.nav_container ul {
+    list-style-type: none;
+}
+
+.nav_container .nav_link {
+    color: firebrick;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+    font-size: 23px;
+}
+
+.nav_container .nav_link i {
+    margin-right: 6px;
+}
+
+/*.nav_container ul li {
+    margin: 1px;
+    font-size: 20px;
+
+}*/
+
+.btn {
+    padding: 6px 12px;
+    color:white;
+    border-radius: 2px;
+
+}
+.btn:hover {
+    cursor: pointer;
+    background-color: black;
+}
+
+
+
+
+.btn i {
+    color: white;
+    padding-right: 5px;
+}
+
+.btn-checkout {
+    background-color: green;
+    border: 2px solid darkgreen;
+    width: 150px;
+}
+
+.btn-info {
+    background-color: #336699;
+    border: 2px solid blue;
+    width: 100px;
+}
+
+.btn-delete {
+    background-color: #CB4136;
+    border: 2px solid #B32F26;
+    width: 130px;
+}
