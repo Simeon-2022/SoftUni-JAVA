@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 thead {
-    font-family: Montserrat ;
+    font-family: Montserrat, serif ;
     background-color: cyan;
     text-align: center;
 }
@@ -82,12 +84,37 @@ h1 {
 .body_zad_9 {
     padding: 10px 75px;
 }
-.body_zad_9 ol
+.body_zad_11 {
+    background-color: firebrick;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
 
+}
+.body_zad_11 h1 {
+    font-family: Anton, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    margin-top: 55px;
+    font-size: 70px;
+    font-weight: normal;
+
+}
+.body_zad_11 h2 {
+    font-family: "Open Sans", "Times New Roman", serif;
+    color: lightsalmon;
+    text-transform: uppercase;
+    font-size: 45px;
+}
+
+.body_zad_11 p {
+    line-height: 25px;
+    font-weight: bold;
+}
 
 #h3_zad_5 {
     color: #000;
-    font-family: Arial;
+    font-family: Arial, serif;
     font-style: italic;
 }
 
@@ -174,8 +201,26 @@ b.modern {
     margin: 44px;
 }
 
+.article_zad_10 {
+    background-color: #336699;
+    margin: 35px 15px;
+    border-radius: 10px;
+    padding: 30px 15px;
+    max-width: 600px;
+    color: white;
+    text-indent: 25px;
+
+}
+
+.article_zad_10 p {
+    font-family: Arial;
+    font-size: small;
+    line-height: 19.5px;
+}
+
 #section_zad_4 {
     margin: 40px;
+
 }
 
 /*section article {
