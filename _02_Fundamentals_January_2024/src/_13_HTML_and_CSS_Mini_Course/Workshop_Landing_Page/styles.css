@@ -4,7 +4,7 @@
 body, ul {
     margin: 0;
     padding: 0;
-    font-family: "Lato", Arial;
+    font-family: "Lato", Arial, serif;
 }
 
 
@@ -130,25 +130,28 @@ header nav ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 50px auto   ;
+    margin: 50px auto;
 }
 
 .training {
     margin: 20px;
-    box-shadow: 0px 2px 4px 0px #00000024;
+    box-shadow: 0 2px 4px 0 #00000024;
     border-radius: 10px;
+    max-width: 400px;
 }
 
 .training header {
     position: relative;
     text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-.training header h3{
+.training header h3 {
     text-align: center;
     padding: 50px 20px 30px 30px;
     font-size: 24px;
-    font-family: Montserrat, Arial;
+    font-family: Montserrat, Arial, serif;
 }
 
 .training header span {
@@ -172,9 +175,54 @@ header nav ul {
     background: #9a5dc6;
 }
 
+.training-content {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.training-content-info {
+    display: flex;
+    vertical-items: center;
+    margin: 8px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
 .training:nth-child(2) header {
     background: #41bead;
     color: white;
 }
 
- 
+.training-content::after {
+    content: '';
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.training footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.training-price {
+    font-size: 24px;
+    color: red;
+    font-weight: 600;
+    font-family: Montserrat;
+}
+
+.training-cta .btn {
+    font-weight: bold;
+    padding-left: 18px;
+    padding-right: 18px;
+}
