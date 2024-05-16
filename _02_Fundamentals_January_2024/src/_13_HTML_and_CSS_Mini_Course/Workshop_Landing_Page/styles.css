@@ -240,8 +240,8 @@ header nav ul {
     display: flex;
     align-items: center;
     text-align: center;
-    padding: 0 50px;
-}
+    padding: 0 20px 20px 20px;
+ }
 
 .program-content .btn, .hardware-content .btn {
     font-weight: 600;
@@ -275,6 +275,7 @@ header nav ul {
     background: #e3f3fd;
     border: 3px solid #44a9f8;
     padding-bottom: 50px;
+    margin: 20px;
 }
 
 .program-header {
@@ -283,11 +284,12 @@ header nav ul {
     box-shadow: none;
 }
 
+
 .program-software h4 {
     display: inline-block;
     color: #44a9f8;
     font-size: 32px;
-
+    margin: 0;
 }
 
 .program-hardware {
@@ -295,12 +297,15 @@ header nav ul {
     background: #dff4f1;
     border: 3px solid #44a9f8;
     padding-bottom: 50px;
+    margin: 20px;
+
 }
 
 .program-hardware h4 {
     display: inline-block;
     color: #00af9b;
     font-size: 32px;
+    margin: 0;
 }
 
 
