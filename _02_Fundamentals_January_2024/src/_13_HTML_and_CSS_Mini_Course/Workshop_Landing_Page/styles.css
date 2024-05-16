@@ -218,7 +218,7 @@ header nav ul {
     font-size: 24px;
     color: red;
     font-weight: 600;
-    font-family: Montserrat;
+    font-family: Montserrat, serif;
 }
 
 .training-cta .btn {
@@ -226,3 +226,81 @@ header nav ul {
     padding-left: 18px;
     padding-right: 18px;
 }
+
+.dots-line-container {
+    padding: 0 40px;
+}
+
+.programs {
+    margin: 40px auto;
+
+}
+
+.programs-content {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 50px;
+}
+
+.program-content .btn, .hardware-content .btn {
+    font-weight: 600;
+}
+
+.program-content p, .hardware-content p {
+    padding-bottom: 20px;
+}
+
+.programs header {
+    display: block;
+    box-shadow: none;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.programs header h2 {
+    color: #41bead;
+    font-size: 36px;
+    font-family: Montserrat, serif;
+    text-align: center;
+}
+
+.programs header p {
+    color: black;
+    font-size: 16px;
+}
+
+.program-software {
+    border-radius: 10px;
+    background: #e3f3fd;
+    border: 3px solid #44a9f8;
+    padding-bottom: 50px;
+}
+
+.program-header {
+    display: inline-block;
+    align-items: center;
+    box-shadow: none;
+}
+
+.program-software h4 {
+    display: inline-block;
+    color: #44a9f8;
+    font-size: 32px;
+
+}
+
+.program-hardware {
+    border-radius: 10px;
+    background: #dff4f1;
+    border: 3px solid #44a9f8;
+    padding-bottom: 50px;
+}
+
+.program-hardware h4 {
+    display: inline-block;
+    color: #00af9b;
+    font-size: 32px;
+}
+
+
