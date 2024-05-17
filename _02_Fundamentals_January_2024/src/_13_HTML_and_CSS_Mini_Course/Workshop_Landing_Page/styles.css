@@ -6,7 +6,9 @@ body, ul {
     padding: 0;
     font-family: "Lato", Arial, serif;
 }
-
+body * {
+    font-family: "Lato", Arial, serif;
+}
 
 header {
     box-shadow: 0 3px 8px -4px darkgray;
@@ -308,4 +310,52 @@ header nav ul {
     margin: 0;
 }
 
+.page-footer {
+    background: #565656;
+    color: white;
+    position: relative;
+    padding-left: 25%;
+    margin-top: 260px;
+    height: 312px;
+    border-top: 12px solid #919191;
+    align-items: stretch;
+    justify-content: space-between;
+    padding-right: 60px;
+}
 
+.page-footer ul {
+    list-style-type: none;
+}
+
+.footer-person-container img{
+    position: absolute;
+    bottom: 0;
+    left: 55px;
+}
+
+.footer-menu {
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.page-footer h5 {
+    font-size: 24px ;
+}
+
+.footer-menu li {
+    margin: 15px;
+}
+
+.kids {
+padding-right: 35px;
+}
+
+
+.social-media ul {
+    display: flex;
+}
+
+.social-media ul li {
+    margin: 0 10px;
+}
