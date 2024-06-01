@@ -6,9 +6,9 @@ public class _01_Reverse_Numbers_with_a_Stack {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-            List<Integer> input = Arrays.stream(scanner.nextLine().split(" "))
-                    .map(Integer::parseInt)
-                    .toList();
+            int[] input = Arrays.stream(scanner.nextLine().split(" "))
+                    .mapToInt(Integer::parseInt)
+                    .toArray();
 
         ArrayDeque<Integer> numbers = new ArrayDeque<>();
         for (int number : input) {
