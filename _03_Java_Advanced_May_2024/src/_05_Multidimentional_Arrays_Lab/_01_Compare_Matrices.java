@@ -48,7 +48,7 @@ public class _01_Compare_Matrices {
                 } else {
                     for (int col = 0; col < matrx1[row].length; col++) {
 
-                        if (matrx1[row][col] != matrx1[row][col]) {
+                        if (matrx1[row][col] != matrx2[row][col]) {
                         return false;
                         }
                     }
