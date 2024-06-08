@@ -14,7 +14,7 @@ public class _08_Wrong_Measurements {
         fillMatrix(matrx, scanner);
 
         int[] numberParams = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-        int[][] matrxFixed = new int[matrxParam][];
+        int[][] matrxFixed = new int[matrxParam][matrx[0].length];
 
         int numberToFix = matrx[numberParams[0]][numberParams[1]];
 
@@ -23,10 +23,18 @@ public class _08_Wrong_Measurements {
 
                 if (matrx[row][col] == numberToFix) {
 
+                    matrxFixed[row][col] = getSum(matrx, row, col, matrxParam, matrx[row].length, numberToFix);
 
+                } else {
+                    matrxFixed[row][col] = matrx[row][col];
                 }
             }
         }
+
+        for (int[] ints : matrxFixed) {
+            System.out.println(Arrays.toString(ints).replaceAll("[\\[\\],]", ""));
+        }
+
     }
 
     public static int up(int[][] matrx, int row, int col, int numberToFix) {
@@ -39,14 +47,41 @@ public class _08_Wrong_Measurements {
         return 0;
     }
 
-    public static int down (int[][] matrx, int row, int col, int matrxDimention, int numberToFix) {
-        if (row < matrxDimention) {
+    public static int down(int[][] matrx, int row, int col, int matrxDimention, int numberToFix) {
+        if (row < matrxDimention - 1) {
             row++;
             if (matrx[row][col] != numberToFix) {
                 return matrx[row][col];
             }
         }
         return 0;
+    }
+
+    public static int left(int[][] matrx, int row, int col, int numberToFix) {
+        if (col > 0) {
+            col--;
+            if (matrx[row][col] != numberToFix) {
+                return matrx[row][col];
+            }
+        }
+        return 0;
+    }
+
+    public static int right(int[][] matrx, int row, int col, int matrxDimention, int numberToFix) {
+        if (col < matrxDimention - 1) {
+            col++;
+            if (matrx[row][col] != numberToFix) {
+                return matrx[row][col];
+            }
+        }
+        return 0;
+    }
+
+    public static int getSum(int[][] matrx, int row, int col, int matrxDimention, int rowLength,  int numberToFix) {
+        return up(matrx, row, col, numberToFix) +
+                down(matrx, row, col, matrxDimention, numberToFix) +
+                left(matrx, row, col, numberToFix) +
+                right(matrx, row, col, rowLength, numberToFix);
     }
 
     public static void fillMatrix(int[][] matrx, Scanner scanner) {
@@ -56,4 +91,5 @@ public class _08_Wrong_Measurements {
 
         }
     }
+
 }
