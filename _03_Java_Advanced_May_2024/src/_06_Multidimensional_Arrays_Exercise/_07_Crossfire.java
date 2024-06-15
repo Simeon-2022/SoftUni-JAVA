@@ -37,7 +37,7 @@ public class _07_Crossfire {
 
         for (int row = 0; row < matrix.length; row++) {
             String[] rowNumbers = new String[matrix[row].length];
-            Arrays.fill(rowNumbers, " ");
+            Arrays.fill(rowNumbers, "");
 
             int index = 0;
             for (int col = 0; col < matrix[row].length; col++) {
@@ -47,6 +47,7 @@ public class _07_Crossfire {
 
                 }
             }
+
             System.arraycopy(rowNumbers, 0, matrix[row], 0, matrix[row].length);
         }
     }
@@ -98,18 +99,20 @@ public class _07_Crossfire {
     }
 
     private static void printMatrix(String[][] matrix) {
-        List<Integer> currentRow = new ArrayList<>();
         for (int row = 0; row < matrix.length; row++) {
+            List<Integer> currentRow = new ArrayList<>();
+
             for (int col = 0; col < matrix[row].length; col++) {
-                if (!matrix[row][col].equals(" ")) {
+                if (!matrix[row][col].isEmpty()) {
                     currentRow.add(Integer.parseInt(matrix[row][col]));
                     //        System.out.print(matrix[row][col] + " ");
                 }
             }
-            System.out.print(Arrays.toString(currentRow.toArray()).replaceAll("[\\[\\],]",""));
-            currentRow.clear();
-            if (row + 1 < matrix[row].length) {
-                System.out.println();
+            if (!currentRow.isEmpty()) {
+                System.out.print(Arrays.toString(currentRow.toArray()).replaceAll("[\\[\\],]",""));
+                if (row + 1 < matrix[row].length) {
+                    System.out.println();
+                }
             }
         }
     }

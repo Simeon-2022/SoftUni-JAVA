@@ -38,8 +38,6 @@ public class _08_The_Heigan_Dance {
             boolean moveDown = false;
             boolean moveRight = false;
 
-            //boolean isEruption = false;
-
             heiganHealthPoints -= damageToHeigan;
 
             if (isCloudActive) {
@@ -53,20 +51,20 @@ public class _08_The_Heigan_Dance {
                 if (damagedArea.contains(matrix[playerStartRow][playerStartCol])) {
 
 
-                    if (isInsideMatrix(matrix, playerStartRow + 1, playerStartCol) && !damagedArea.contains(matrix[playerStartRow + 1][playerStartCol])) {
+                    if (isInsideMatrix(matrix, playerStartRow - 1, playerStartCol) && !damagedArea.contains(matrix[playerStartRow - 1][playerStartCol])) {
                         moveUp = true;
-                        ++playerStartRow;
-
-                    } else if (isInsideMatrix(matrix, playerStartRow, playerStartCol + 1) && !damagedArea.contains(matrix[playerStartRow][playerStartCol + 1])) {
-                        moveLeft = true;
-                        ++playerStartCol;
-
-                    } else if (isInsideMatrix(matrix, playerStartRow - 1, playerStartCol) && !damagedArea.contains(matrix[playerStartRow - 1][playerStartCol])) {
-                        moveDown = true;
                         --playerStartRow;
 
-                    } else if (isInsideMatrix(matrix, playerStartRow, playerStartCol - 1) && !damagedArea.contains(matrix[playerStartRow][playerStartCol - 1])) {
+                    }else if (isInsideMatrix(matrix, playerStartRow, playerStartCol + 1) && !damagedArea.contains(matrix[playerStartRow][playerStartCol + 1])) {
                         moveRight = true;
+                        ++playerStartCol;
+
+                    } else if (isInsideMatrix(matrix, playerStartRow + 1, playerStartCol) && !damagedArea.contains(matrix[playerStartRow + 1][playerStartCol])) {
+                        moveDown = true;
+                        ++playerStartRow;
+
+                    } else if (isInsideMatrix(matrix, playerStartRow, playerStartCol - 1) && !damagedArea.contains(matrix[playerStartRow][playerStartCol - 1])) {
+                        moveLeft = true;
                         --playerStartCol;
 
                     }
@@ -103,7 +101,6 @@ public class _08_The_Heigan_Dance {
 
         System.out.printf("Final position: %d, %d", playerStartRow, playerStartCol);
 
-        // printMatrix(matrix);
     }
 
     private static List<Integer> getIntegers(String input, int[][] matrix) {
@@ -112,12 +109,12 @@ public class _08_The_Heigan_Dance {
 
         int subRowStart = Math.max(0, affectedRow - 1);
         int subColStart = Math.max(0, affectedCol - 1);
-        int subRowEnd = Math.min(affectedRow + 1, 15);
-        int subColEnd = Math.min(affectedCol + 1, 15);
+        int subRowEnd = Math.min(affectedRow + 1, 14);
+        int subColEnd = Math.min(affectedCol + 1, 14);
 
         List<Integer> damagedArea = new ArrayList<>();
-        for (int row = subRowStart; row < subRowEnd; row++) {
-            for (int col = subColStart; col < subColEnd; col++) {
+        for (int row = subRowStart; row <= subRowEnd; row++) {
+            for (int col = subColStart; col <= subColEnd; col++) {
                 damagedArea.add(matrix[row][col]);
             }
         }
