@@ -14,26 +14,23 @@ public class _01_Parking_Lot {
         LinkedHashSet<String> parking = new LinkedHashSet<>();
 
         while (!"END".equalsIgnoreCase(input)) {
-            String direction = input.substring(0, input.indexOf(','));
-            String licencePlate = input.substring(input.indexOf('C'));
+            String direction = input.substring(0, input.indexOf(","));
+            String licencePlate = input.substring(input.indexOf(" ")).trim();
 
             if (direction.equals("IN")) {
                 parking.add(licencePlate);
-            } else {
+            } else if (direction.equals("OUT")) {
                 parking.remove(licencePlate);
-            }
 
-            if (parking.isEmpty()) {
-                System.out.println("Parking Lot is Empty");
-                return;
             }
-
             input = scanner.nextLine();
         }
 
-        for (String car : parking) {
-            System.out.println(car);
-        }
+        String result = parking.isEmpty()
+                ?"Parking Lot is Empty"
+                :String.join(System.lineSeparator(),parking);
+
+        System.out.println(result);
     }
 
 }
