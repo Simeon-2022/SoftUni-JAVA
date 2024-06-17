@@ -7,15 +7,13 @@ public class _11_Reverse_Matrix_Diagonals {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[] params = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-
-        if (params[0] <= 0 || params[1] <= 0) {
-            return;
-        }
-
         int[][] matrix = new int[params[0]][params[1]];
 
         fillMatrix(matrix, scanner);
 
+        if (params[0] <= 0 || params[1] <= 0) {
+            return;
+        }
 
         for (int col = matrix[matrix.length - 1].length - 1; col >= 0; col--) {
             int row = matrix.length - 1;
