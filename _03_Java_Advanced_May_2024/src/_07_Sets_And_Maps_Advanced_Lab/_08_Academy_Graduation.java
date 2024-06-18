@@ -1,5 +1,6 @@
 package _07_Sets_And_Maps_Advanced_Lab;
 
+//import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -26,8 +27,9 @@ public class _08_Academy_Graduation {
                     .mapToDouble(Double::doubleValue)
                     .average()
                     .getAsDouble();
-
-            System.out.printf("%s is graduated with %f%n", key, average);
+           // DecimalFormat df = new DecimalFormat("#.######################");
+           // String formattedValue = df.format(average);
+            System.out.printf("%s is graduated with %s%n", key, average);
 
         });
     }
