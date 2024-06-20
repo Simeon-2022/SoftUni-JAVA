@@ -1,6 +1,8 @@
 package _08_Sets_And_Maps_Advanced_Exercise;
 
+import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class _06_Fix_Emails {
@@ -17,13 +19,20 @@ public class _06_Fix_Emails {
             name = scanner.nextLine();
         }
 
+        collection.entrySet().removeIf(entry ->
+                entry.getValue().contains(".com") || entry.getValue().contains(".uk") || entry.getValue().contains(".us"));
 
-        collection.forEach((key, value) -> {
-            if (value.contains(".com") || value.contains(".uk") || value.contains(".us")) {
-                collection.remove(key);
+        /*   Iterator<Map.Entry<String, String>> iterator = collection.entrySet().iterator();
+        while (iterator.hasNext()) {
+
+            Map.Entry<String, String> entry = iterator.next();
+
+            if (entry.getValue().contains(".com") || entry.getValue().contains(".uk") || entry.getValue().contains(".us")) {
+                iterator.remove();
             }
-        });
 
-        collection.forEach((key, value) -> System.out.println(key +" -> " + value));
+        }*/
+
+        collection.forEach((key, value) -> System.out.println(key + " -> " + value));
     }
 }
