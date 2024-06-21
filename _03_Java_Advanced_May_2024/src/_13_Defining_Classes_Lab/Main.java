@@ -12,15 +12,15 @@ public class Main {
 
             String[] input = scanner.nextLine().split("\\s+");
 
-            Car car = new Car();
+            Car car;
 
-            car.setBrand(input[0]);
-            car.setModel(input[1]);
-            car.setHorsePower(Integer.parseInt(input[2]));
+            if (input.length == 3) {
+                car = new Car(input[0], input[1], Integer.parseInt(input[2]));
+            } else {
+                car = new Car(input[0]);
+            }
 
             System.out.println(car);
-
         }
-
     }
 }
