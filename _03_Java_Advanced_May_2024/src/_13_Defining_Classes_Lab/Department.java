@@ -1,6 +1,6 @@
 package _13_Defining_Classes_Lab;
 
-import _14_Defining_Classes_Exercise.Employee;
+import _14_Defining_Classes_Exercise._02_Company_Roster.Employee;
 
 import java.util.ArrayList;
 import java.util.List;

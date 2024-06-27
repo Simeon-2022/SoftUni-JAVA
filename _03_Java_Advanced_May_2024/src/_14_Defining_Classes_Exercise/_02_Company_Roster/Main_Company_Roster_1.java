@@ -1,9 +1,9 @@
-package _14_Defining_Classes_Exercise;
+package _14_Defining_Classes_Exercise._02_Company_Roster;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Main {
+public class Main_Company_Roster_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

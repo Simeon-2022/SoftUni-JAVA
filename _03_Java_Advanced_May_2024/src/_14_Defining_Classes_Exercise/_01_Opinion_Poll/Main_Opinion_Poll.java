@@ -1,4 +1,4 @@
-package _14_Defining_Classes_Exercise;
+package _14_Defining_Classes_Exercise._01_Opinion_Poll;
 
 import java.util.*;
 

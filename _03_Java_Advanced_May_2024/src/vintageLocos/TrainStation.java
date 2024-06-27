@@ -5,8 +5,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class TrainStation {
-    private final String name;
 
+    private final String name;
     private int capacity;
     private int railGauge;
     private final List<Locomotive> locomotives;
@@ -99,7 +99,7 @@ public class TrainStation {
 
     public String  getOldestLocomotive() {
 
-        if (locomotives.size() != 0) {
+        if (getCount() != 0) {
             List<Locomotive> locomotivesByDate = locomotives.stream().sorted(Comparator.comparing(Locomotive::getBuildDate)).toList();
 
             for (Locomotive locomotive : locomotivesByDate) {

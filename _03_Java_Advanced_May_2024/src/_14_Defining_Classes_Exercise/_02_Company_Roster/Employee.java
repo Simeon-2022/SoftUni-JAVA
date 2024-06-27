@@ -1,4 +1,4 @@
-package _14_Defining_Classes_Exercise;
+package _14_Defining_Classes_Exercise._02_Company_Roster;
 
 
 //_02_Company_Roster
@@ -10,6 +10,9 @@ public class Employee {
     private String name;
     private double salary;
     private String position;
+    private String department;
+    private String email;
+    private int age;
 
     public String getName() {
         return name;
@@ -31,9 +34,7 @@ public class Employee {
         return age;
     }
 
-    private String department;
-    private String email;
-    private int age;
+
 
     public Employee(String name, double salary, String position, String department, String email, int age) {
 
