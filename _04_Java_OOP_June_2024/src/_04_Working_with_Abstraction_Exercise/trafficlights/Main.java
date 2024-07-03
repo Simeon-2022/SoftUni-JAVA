@@ -1,6 +1,5 @@
 package _04_Working_with_Abstraction_Exercise.trafficlights;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 

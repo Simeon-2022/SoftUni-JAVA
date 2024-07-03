@@ -1,4 +1,4 @@
-package jediGalaxy;
+package _04_Working_with_Abstraction_Exercise.jediGalaxy;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -13,11 +13,11 @@ public class Main {
         long sum = 0;
 
         while (!command.equals("Let the Force be with you")) {
-            int[] ivoCoordinates = getInput(command);
+            int[] jediCoordinates = getInput(command);
             int[] evilCoordinates = getInput(scanner.nextLine());
 
-            evilDestroyStars(evilCoordinates, matrix);
-            sum += ivoCollectStars(ivoCoordinates, matrix);
+            evilMoveAndDestroyStars(evilCoordinates, matrix);
+            sum += jediMoveAndCollectStars(jediCoordinates, matrix);
 
             command = scanner.nextLine();
         }
@@ -27,7 +27,7 @@ public class Main {
 
     }
 
-    public static void evilDestroyStars(int[] coordinates , int[][] matrix) {
+    public static void evilMoveAndDestroyStars(int[] coordinates , int[][] matrix) {
         int rowEvil = coordinates[0];
         int colEvil = coordinates[1];
 
@@ -40,7 +40,7 @@ public class Main {
         }
     }
 
-    public static int ivoCollectStars(int[] coordinates , int[][] matrix) {
+    public static int jediMoveAndCollectStars(int[] coordinates , int[][] matrix) {
         int sumCollectedStars = 0;
         int rowIvo = coordinates[0];
         int colIvo = coordinates[1];
@@ -59,14 +59,14 @@ public class Main {
 
 
 
-    public static int[] getInput(String input) {
+    private static int[] getInput(String input) {
         return Arrays.stream(input.split(" ")).mapToInt(Integer::parseInt).toArray();
     }
 
-    public static boolean isInMatrix(int rowEvil, int colEvil, int [][] matrix) {
+    private static boolean isInMatrix(int rowEvil, int colEvil, int [][] matrix) {
         return rowEvil >= 0 && rowEvil < matrix.length && colEvil >= 0 && colEvil < matrix[0].length;
     }
-    public static int[][] fillMatrix(String input) {
+    private static int[][] fillMatrix(String input) {
         int[] dimestions = getInput(input);
         int x = dimestions[0];
         int y = dimestions[1];
