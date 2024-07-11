@@ -1,5 +1,7 @@
 package _05_Encapsulation_Lab._02_salaryIncrease;
 
+import java.text.DecimalFormat;
+
 public class Person {
 
     private final String firstName;
@@ -35,16 +37,23 @@ public class Person {
     }
 
     public void increaseSalary(double bonus) {
+
+        if (getAge() < 30) {
+            bonus *= 0.5;
+        }
         setSalary(getSalary() * (1 + bonus / 100));
     }
 
     @Override
 
     public String toString() {
-        return String.format("%s %s is %d %.2f",
+
+        DecimalFormat df = new DecimalFormat("#.0####");
+
+        return String.format("%s %s is %d %s leva",
                 getFirstName(),
                 getLastName(),
                 getAge(),
-                getSalary());
+                df.format(getSalary()));
     }
 }
