@@ -6,8 +6,8 @@ public class Product {
     private double cost;
 
     public Product(String name, double cost) {
-        setName();
-        setCost();
+        setName(name);
+        setCost(cost);
     }
 
     public String getName() {
@@ -18,7 +18,7 @@ public class Product {
         return cost;
     }
 
-    private void setName() {
+    private void setName(String name) {
         if (name.isEmpty() || name.isBlank()) {
             throw new IllegalArgumentException("Name cannot be empty");
         }
@@ -26,7 +26,7 @@ public class Product {
         this.name = name;
     }
 
-    private void setCost() {
+    private void setCost(Double cost) {
         if (cost < 0) {
             throw new IllegalArgumentException("Money cannot be negative");
         }

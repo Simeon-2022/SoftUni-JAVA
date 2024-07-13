@@ -35,13 +35,18 @@ public class Person {
         return name;
    }
 
+    public List<Product> getProducts() {
+        return this.products;
+    }
 
    public void buyProduct (Product product) {
 
        if (money >= product.getCost()) {
            setMoney(money - product.getCost());
+           products.add(product);
+           System.out.println(name + " bought " + product.getName());
        } else {
-           System.out.println(name + " can't afford " + product.getName());
+           throw new IllegalArgumentException(name + " can't afford " + product.getName());
        }
    }
 
