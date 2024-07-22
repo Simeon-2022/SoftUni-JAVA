@@ -39,7 +39,10 @@ public class Vehicle {
     }
 
     public void drive(double kilometers) {
-        setFuel(this.fuel - kilometers * getFuelConsumption());
+
+        if (this.fuel >= kilometers * getFuelConsumption()) {
+            setFuel(this.fuel - kilometers * getFuelConsumption());
+        }
     }
 
 }

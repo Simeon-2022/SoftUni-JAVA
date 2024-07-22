@@ -1,10 +1,12 @@
 package _08_Inheritance_Exercise.needForSpeed;
 
-public class SportCar extends Car{
+public class SportCar extends Car {
 
-    final static double DEFAULT_FUEL_CONSUMPTION = 3;
+    final static double DEFAULT_FUEL_CONSUMPTION = 10;
+
     public SportCar(double fuel, int horsePower) {
         super(fuel, horsePower);
+        super.setFuelConsumption(DEFAULT_FUEL_CONSUMPTION);
     }
 
 
