@@ -8,9 +8,18 @@ public class Animal {
     private String gender;
 
     public Animal(String name, int age, String gender) {
-        this.name = name;
+        setName(name);
         setAge(age);
         setGender(gender);
+    }
+
+    public void setName(String name) {
+        if (name.isEmpty() || name.isBlank()) {
+            throw new IllegalArgumentException("Invalid input!");
+        }
+
+        this.name = name;
+
     }
 
     public void setAge(int age) {
@@ -42,7 +51,7 @@ public class Animal {
     }
 
     public String produceSound() {
-        return "Undefined";
+        return "Undefined"; // return null;
     }
 
     @Override

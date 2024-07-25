@@ -25,7 +25,7 @@ public class Topping {
     }
 
     public void setWeight(double weight) {
-        if (weight >= 1 || weight <= 50) {
+        if (weight >= 1 && weight <= 50) {
 
             this.weight = weight;
         } else {
