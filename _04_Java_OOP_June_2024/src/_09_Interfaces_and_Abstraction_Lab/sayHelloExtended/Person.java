@@ -1,4 +1,4 @@
-package sayHelloExtended;
+package _09_Interfaces_and_Abstraction_Lab.sayHelloExtended;
 
 public interface Person {
 

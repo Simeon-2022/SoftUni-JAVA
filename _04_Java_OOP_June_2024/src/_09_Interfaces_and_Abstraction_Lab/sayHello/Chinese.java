@@ -1,4 +1,4 @@
-package sayHello;
+package _09_Interfaces_and_Abstraction_Lab.sayHello;
 
 public class Chinese implements Person {
 
