@@ -1,4 +1,6 @@
-package vehiclesExtension;
+package vehicles;
+
+import java.text.DecimalFormat;
 
 public abstract class Vehicle {
 

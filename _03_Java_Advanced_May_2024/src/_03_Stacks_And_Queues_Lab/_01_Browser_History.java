@@ -2,11 +2,11 @@ package _03_Stacks_And_Queues_Lab;
 
 import java.util.ArrayDeque;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class _01_Browser_History {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         ArrayDeque<String> urls = new ArrayDeque<>();
         String currentUrl = scanner.nextLine();
 

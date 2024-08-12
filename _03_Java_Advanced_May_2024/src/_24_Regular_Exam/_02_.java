@@ -16,7 +16,6 @@ public class _02_ {
             String currentRow = scanner.nextLine();
             field[i] = currentRow.split("");
 
-
             if (currentRow.indexOf('B') != -1) {
                 beeCol = currentRow.indexOf('B');
                 beeRow = i;
