@@ -24,7 +24,7 @@ public class AxeTest {
         int expected = DURABILITY - DURABILITY_LOST;
         int actual = axe.getDurabilityPoints();
 
-        assertEquals(expected, actual);
+        assertEquals(expected, actual,"Wrong durability:");
     }
 
     @Test
