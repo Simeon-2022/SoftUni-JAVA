@@ -1,8 +1,6 @@
 package _08_Sets_And_Maps_Advanced_Exercise;
 
-import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class _06_Fix_Emails {

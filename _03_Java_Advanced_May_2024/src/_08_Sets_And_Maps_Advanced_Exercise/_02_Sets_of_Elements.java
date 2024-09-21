@@ -1,7 +1,6 @@
 package _08_Sets_And_Maps_Advanced_Exercise;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 
