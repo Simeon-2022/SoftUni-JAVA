@@ -800,18 +800,3 @@ INSERT INTO `rivers` (`id`, `river_name`, `length`, `drainage_area`, `average_di
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-
-use geography;
--- 21. All Mountain Peaks
-select peak_name from peaks order by peak_name; 
-
--- 22. Biggest Countries by Population
-select * from currencies;
-select country_name, population from countries where continent_code = 'EU' order by population desc, country_name limit 30;
-
--- 23. Countries and Currency (Euro / Not Euro)
-select * from countries;
-
-select country_name, country_code,
-if (currency_code = 'EUR', "Euro", "Not Euro") as currency 
-from countries order by country_name;

@@ -322,6 +322,10 @@ INSERT INTO employees (first_name, middle_name, last_name, job_title, department
 ('Georgi', 'Terziev', 'Ivanov', 'CEO', 2, '2007-12-09', 3000.00),
 ('Peter', 'Pan', 'Pan', 'Intern', 3, '2016-08-28', 599.88);
 
+select * from employees where address_id is null;
+
+
+
 -- 14. Basic Select All Fields
 SELECT * FROM towns;
 SELECT * FROM departments;
