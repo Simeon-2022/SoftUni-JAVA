@@ -800,3 +800,14 @@ INSERT INTO `rivers` (`id`, `river_name`, `length`, `drainage_area`, `average_di
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+use geography;
+-- 10. Countries Holding 'A'
+select country_name, iso_code from countries where (length(country_name) - length(replace(upper(country_name), 'A',''))) >= 3 order by iso_code;
+
+-- 11. Mix of Peak and River Names
+select p.peak_name, r.river_name, lower(concat(p.peak_name, '', substring(r.river_name,2))) as mix from peaks as p, rivers as r 
+where upper(right(p.peak_name,1)) = upper(left(r.river_name ,1)) 
+order by mix;
+
+

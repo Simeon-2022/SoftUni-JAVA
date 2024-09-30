@@ -4106,3 +4106,30 @@ INSERT INTO `user_game_items` (`item_id`, `user_game_id`) VALUES
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+use diablo;
+-- 12. Games From 2011 and 2012 Year
+select name, date_format(start,'%Y-%m-%d') from games where year(start) between 2011 and 2012 order by start, name limit 50;
+
+-- 13. User Email Providers
+select * from users;
+select user_name, substring(email,locate('@',email) + 1) as `email provider` from users order by `email provider`, user_name; 
+
+-- 14. Get Users with IP Address Like Pattern
+select user_name, ip_address from users where ip_address like "___.1%.%.___" order by user_name;
+
+-- 15. Show All Games with Duration
+select * from games;
+select name, (
+case 
+when hour(start) between 0 and 11 then "Morning"
+when hour(start) between 12 and 17 then "Afternoon"
+when hour(start) between 18 and 23 then "Evening"
+end) as `Part of the Day`,
+(
+case
+when duration <= 3 then "Extra Short"
+when duration between 4 and 6 then "Short"
+when duration between 7 and 10 then "Long"
+else "Extra Long" end
+) as `Duration` from games;

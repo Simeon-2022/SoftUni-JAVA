@@ -19,6 +19,58 @@ CREATE TABLE IF NOT EXISTS `addresses` (
 ) ENGINE=InnoDB AUTO_INCREMENT=292 DEFAULT CHARSET=utf8;
 
 
+CREATE TABLE IF NOT EXISTS `departments` (
+  `department_id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `manager_id` int(10) NOT NULL,
+  PRIMARY KEY (`department_id`),
+  UNIQUE KEY `PK_Departments` (`department_id`),
+  KEY `fk_departments_employees` (`manager_id`),
+  CONSTRAINT `fk_departments_employees` FOREIGN KEY (`manager_id`) REFERENCES `employees` (`employee_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `employees` (
+  `employee_id` int(10) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `middle_name` varchar(50) DEFAULT NULL,
+  `job_title` varchar(50) NOT NULL,
+  `department_id` int(10) NOT NULL,
+  `manager_id` int(10) DEFAULT NULL,
+  `hire_date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  `salary` decimal(19,4) NOT NULL,
+  `address_id` int(10) DEFAULT NULL,
+  PRIMARY KEY (`employee_id`),
+  UNIQUE KEY `PK_Employees` (`employee_id`),
+  KEY `CL_FirstName` (`first_name`),
+  KEY `fk_employees_departments` (`department_id`),
+  KEY `fk_employees_employees` (`manager_id`),
+  KEY `fk_employees_addresses` (`address_id`),
+  CONSTRAINT `fk_employees_addresses` FOREIGN KEY (`address_id`) REFERENCES `addresses` (`address_id`),
+  CONSTRAINT `fk_employees_departments` FOREIGN KEY (`department_id`) REFERENCES `departments` (`department_id`),
+  CONSTRAINT `fk_employees_employees` FOREIGN KEY (`manager_id`) REFERENCES `employees` (`employee_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=294 DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `employees_projects` (
+  `employee_id` int(10) NOT NULL,
+  `project_id` int(10) NOT NULL,
+  PRIMARY KEY (`employee_id`,`project_id`),
+  UNIQUE KEY `PK_EmployeesProjects` (`employee_id`,`project_id`),
+  KEY `fk_employees_projects_projects` (`project_id`),
+  CONSTRAINT `fk_employees_projects_employees` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`),
+  CONSTRAINT `fk_employees_projects_projects` FOREIGN KEY (`project_id`) REFERENCES `projects` (`project_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `projects` (
+  `project_id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` text,
+  `start_date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  `end_date` timestamp(6) NULL DEFAULT NULL,
+  PRIMARY KEY (`project_id`),
+  UNIQUE KEY `PK_Projects` (`project_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8;
+
 /*!40000 ALTER TABLE `addresses` DISABLE KEYS */;
 INSERT INTO `addresses` (`address_id`, `address_text`, `town_id`) VALUES
 	(1, '108 Lakeside Court', 5),
@@ -315,16 +367,6 @@ INSERT INTO `addresses` (`address_id`, `address_text`, `town_id`) VALUES
 /*!40000 ALTER TABLE `addresses` ENABLE KEYS */;
 
 
-CREATE TABLE IF NOT EXISTS `departments` (
-  `department_id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `manager_id` int(10) NOT NULL,
-  PRIMARY KEY (`department_id`),
-  UNIQUE KEY `PK_Departments` (`department_id`),
-  KEY `fk_departments_employees` (`manager_id`),
-  CONSTRAINT `fk_departments_employees` FOREIGN KEY (`manager_id`) REFERENCES `employees` (`employee_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
-
 
 /*!40000 ALTER TABLE `departments` DISABLE KEYS */;
 INSERT INTO `departments` (`department_id`, `name`, `manager_id`) VALUES
@@ -345,31 +387,6 @@ INSERT INTO `departments` (`department_id`, `name`, `manager_id`) VALUES
 	(15, 'Shipping and Receiving', 85),
 	(16, 'Executive', 109);
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
-
-
-
-CREATE TABLE IF NOT EXISTS `employees` (
-  `employee_id` int(10) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(50) NOT NULL,
-  `middle_name` varchar(50) DEFAULT NULL,
-  `job_title` varchar(50) NOT NULL,
-  `department_id` int(10) NOT NULL,
-  `manager_id` int(10) DEFAULT NULL,
-  `hire_date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `salary` decimal(19,4) NOT NULL,
-  `address_id` int(10) DEFAULT NULL,
-  PRIMARY KEY (`employee_id`),
-  UNIQUE KEY `PK_Employees` (`employee_id`),
-  KEY `CL_FirstName` (`first_name`),
-  KEY `fk_employees_departments` (`department_id`),
-  KEY `fk_employees_employees` (`manager_id`),
-  KEY `fk_employees_addresses` (`address_id`),
-  CONSTRAINT `fk_employees_addresses` FOREIGN KEY (`address_id`) REFERENCES `addresses` (`address_id`),
-  CONSTRAINT `fk_employees_departments` FOREIGN KEY (`department_id`) REFERENCES `departments` (`department_id`),
-  CONSTRAINT `fk_employees_employees` FOREIGN KEY (`manager_id`) REFERENCES `employees` (`employee_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=294 DEFAULT CHARSET=utf8;
-
 
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
 INSERT INTO `employees` (`employee_id`, `first_name`, `last_name`, `middle_name`, `job_title`, `department_id`, `manager_id`, `hire_date`, `salary`, `address_id`) VALUES
@@ -667,19 +684,6 @@ INSERT INTO `employees` (`employee_id`, `first_name`, `last_name`, `middle_name`
 	(292, 'Martin', 'Kulov', NULL, 'Independent .NET Consultant', 6, NULL, '2005-03-01 00:00:00.000000', 48000.0000, 291),
 	(293, 'George', 'Denchev', NULL, 'Independent Java Consultant', 6, NULL, '2005-03-01 00:00:00.000000', 48000.0000, 291);
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
-
-
-
-CREATE TABLE IF NOT EXISTS `employees_projects` (
-  `employee_id` int(10) NOT NULL,
-  `project_id` int(10) NOT NULL,
-  PRIMARY KEY (`employee_id`,`project_id`),
-  UNIQUE KEY `PK_EmployeesProjects` (`employee_id`,`project_id`),
-  KEY `fk_employees_projects_projects` (`project_id`),
-  CONSTRAINT `fk_employees_projects_employees` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`),
-  CONSTRAINT `fk_employees_projects_projects` FOREIGN KEY (`project_id`) REFERENCES `projects` (`project_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 /*!40000 ALTER TABLE `employees_projects` DISABLE KEYS */;
 INSERT INTO `employees_projects` (`employee_id`, `project_id`) VALUES
@@ -1528,19 +1532,6 @@ INSERT INTO `employees_projects` (`employee_id`, `project_id`) VALUES
 	(245, 127);
 /*!40000 ALTER TABLE `employees_projects` ENABLE KEYS */;
 
-
-
-CREATE TABLE IF NOT EXISTS `projects` (
-  `project_id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `description` text,
-  `start_date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `end_date` timestamp(6) NULL DEFAULT NULL,
-  PRIMARY KEY (`project_id`),
-  UNIQUE KEY `PK_Projects` (`project_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8;
-
-
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
 INSERT INTO `projects` (`project_id`, `name`, `description`, `start_date`, `end_date`) VALUES
 	(1, 'Classic Vest', 'Research, design and development of Classic Vest. Light-weight, wind-resistant, packs to fit into a pocket.', '2003-06-01 00:00:00.000000', NULL),
@@ -1674,47 +1665,56 @@ INSERT INTO `towns` (`town_id`, `name`) VALUES
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 
 use soft_uni;
--- 01. Find Names of All Employees by First Name
-select first_name, last_name from employees where substr(upper(first_name),1,2) = upper('Sa') order by employee_id;
+-- 12. Employees Minimum Salaries
+select * from employees employees where department_id = 2;
+select department_id, min(salary) as minimum_salary from employees where department_id in (2, 5, 7) and hire_date > '2000-01-01' group by department_id order by department_id;
 
--- 02. Find Names of All Employees by Last Name
-select first_name, last_name from employees where lower(last_name) like concat('%',lower('ei'),'%') order by employee_id;
-select first_name, last_name from employees where last_name like '%ei%' order by employee_id;
+-- 13. Employees Average Salaries
+select * from employees where department_id = 2;
+select * from employees_copy;
 
--- 03. Find First Names of All Employess
-select first_name from employees where department_id in (3, 10) and year(hire_date) between 1995 and 2005 order by employee_id;
+create table employees_copy as select * from employees where salary > 30000;
+delete from employees_copy where manager_id = 42;
+update employees_copy set salary = salary + 5000 where department_id = 1;
+select department_id, avg(salary) as avg_salary from employees_copy group by department_id order by department_id;
 
--- 04. Find All Employees Except Engineers
-select * from employees; 
-select first_name, last_name from employees where job_title not like '%engineer%' order by employee_id;   
+-- 14. Employees Maximum Salaries
+select department_id, max(salary) as max_salary from employees group by department_id having max_salary not between 30000 and 70000 order by department_id;
 
--- 05. Find Towns with Name Length
-select name from towns where length(name) in (5,6) order by name;
+-- 15. Employees Count Salaries
+select count(employee_id) as '' from employees where manager_id is null;
 
--- 06. Find Towns Starting With
-select town_id, name from towns where name regexp '^[M,K,B,E]' order by name;
-select town_id, name from towns where 
-name like 'M%' or 
-name like 'K%' or
-name like 'B%' or
-name like 'E%' 
-order by name;
+-- 16. 3rd Highest Salary
 
--- 07. Find Towns Not Starting With R, B or D
-select town_id, name from towns where name regexp '^[^R,B,D]' order by name;
-select town_id, name from towns where 
-name not like 'R%' and 
-name not like 'B%' and
-name not like 'D%' 
-order by name;
-
--- 08. Create View Employees Hired After
-create view v_employees_hired_after_2000 as 
-select first_name, last_name from employees where year(hire_date) > 2000;
-
-select * from v_employees_hired_after_2000;
-
--- 09. Length of Last Name
-select first_name, last_name from employees where length(last_name) = 5;
+select distinct salary from employees where department_id = 1 order by salary desc limit 1 offset 2;
 
 
+select e1.department_id, (
+						select distinct salary 
+                        from employees as e2 
+                        where e2.department_id = e1.department_id 
+                        order by salary desc limit 1 offset 2
+                        ) as third_highest_salary
+from employees as e1 group by e1.department_id having third_highest_salary is not null order by department_id;
+
+-- 17.	 Salary Challenge** 
+select e2.department_id, avg(e2.salary) 
+    from employees as e2 
+    where e2.department_id = 2 
+    group by department_id;
+
+
+
+select e1.first_name, e1.last_name, e1.department_id 
+from employees as e1
+where (
+	select avg(e2.salary) 
+    from employees as e2 
+    where e2.department_id = e1.department_id 
+   -- group by department_id
+	) < e1.salary
+order by e1.department_id, e1.employee_id 
+limit 10;
+
+-- 18. Departments Total Salaries
+select department_id, sum(salary) as total_salary from employees group by department_id order by department_id;
