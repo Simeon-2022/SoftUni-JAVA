@@ -143,8 +143,22 @@ CREATE SCHEMA Project_Management;
 USE Project_Management;
 
 CREATE TABLE clients(
-	id INT NOT NULL auto_increment,
+	id INT(11) NOT NULL auto_increment,
     client_name VARCHAR(100)
-)
+);
 
-CREARE TABLE 
+CREATE TABLE employees (
+	id INT(11) NOT NULL auto_increment,
+    first_name VARCHAR(30),
+    last_name VARCHAR(30),
+    project_id INT(11)
+);
+
+CREATE TABLE projects (
+	id INT(11) NOT NULL auto_increment,
+    client_id INT(11),
+    project_lead_id INT(11)
+);
+
+
+
