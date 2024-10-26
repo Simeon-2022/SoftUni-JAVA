@@ -23,7 +23,7 @@ public class _03_Main {
                 .getConnection("jdbc:mysql://localhost:3306/soft_uni", props);
 
         PreparedStatement stmt =
-                connection.prepareStatement("SELECT * FROM employees WHERE salary > ?");
+                connection.prepareStatement("SELECT * FROM soft_uni.employees WHERE salary > ?");
 
         System.out.println("Enter salary: ");
         String salary = sc.nextLine();

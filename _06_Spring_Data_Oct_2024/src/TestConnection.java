@@ -23,7 +23,7 @@ public class TestConnection {
         Connection connection = DriverManager.getConnection(url, props);
 
         String query =  "SELECT user_name,concat(first_name,' ',last_name) as full_name, count(game_id) as games_count " +
-                "FROM users u join users_games ug on u.id = ug.user_id " +
+                "FROM diablo.users u join diablo.users_games ug on u.id = ug.user_id " +
                 "where user_name = ? " +
                 "group by user_name, full_name;";
 
