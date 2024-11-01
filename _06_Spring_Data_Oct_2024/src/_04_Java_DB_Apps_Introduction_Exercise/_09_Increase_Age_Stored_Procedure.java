@@ -1,36 +1,30 @@
 package _04_Java_DB_Apps_Introduction_Exercise;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 import java.util.Scanner;
 
-public class _07_Print_All_Minion_Names {
+public class _09_Increase_Age_Stored_Procedure {
     public static void main(String[] args) throws SQLException {
         Scanner scanner = new Scanner(System.in);
 
         Connection connection = getConnection();
 
-        PreparedStatement stmt = connection.prepareStatement("SELECT name from minions_db.minions;");
+        PreparedStatement procedure = connection.prepareStatement(
+                "call usp_get_older(?);"
+        );
 
-        ResultSet resultSet = stmt.executeQuery();
+        int id = Integer.parseInt(scanner.nextLine());
+        procedure.setInt(1,id);
 
-        List<String> minions = new ArrayList<>();
-        while (resultSet.next()) {
+        procedure.executeUpdate();
 
-            minions.add(resultSet.getString("name"));
-        }
+        PreparedStatement select = connection.prepareStatement("select name, age from minions_db.minions where id = ?;");
+        select.setInt(1,id);
+        ResultSet resultSet = select.executeQuery();
 
-        while (!minions.isEmpty()) {
-            System.out.println(minions.getFirst());
-            System.out.println(minions.getLast());
-            minions.removeFirst();
-            minions.removeLast();
-        }
-
-
-
+        resultSet.next();
+        System.out.printf("%s %d",resultSet.getString("name"), resultSet.getInt("age"));
     }
 
     public static Connection getConnection() throws SQLException {
