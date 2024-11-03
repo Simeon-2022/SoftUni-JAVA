@@ -12,18 +12,24 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) throws SQLException, IllegalAccessException, InvocationTargetException, NoSuchMethodException, InstantiationException {
 
-        MyConnector.createConnection("root","MySQLRootPass@01","soft_uni");
+        MyConnector.createConnection("root", "MySQLRootPass@01", "mini_orm");
 
         Connection connection = MyConnector.getConnection();
         EntityManager<User> em = new EntityManager<>(connection);
 
-        User user1 = new User("user", "pass", 20, LocalDate.now());
+        em.doCreate(User.class);
+        em.doAlter(User.class);
+        //   em.delete(User.class, "id = 1");
+        //User user1 = new User("user", "pass", 20, LocalDate.now());
         User user2 = new User("user2", "pass2", 22, LocalDate.now());
-        user2.setId(2);
+        user2.setPhoneNumber("12121212");
+        user2.setSalary(333.33);
+        em.persist(user2);
 
         User firstUser = em.findFirst(User.class);
-        firstUser.setUsername("updated2");
-        em.persist(firstUser);
+        em.delete(firstUser);
+        //       firstUser.setUsername("updated1");
+        /*         em.persist(firstUser);*/
 
         Iterable<User> users = em.find(User.class);
 

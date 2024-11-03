@@ -8,7 +8,9 @@ import java.time.LocalDate;
 
 @Entity(name = "users")
 public class User {
+
     @Id
+    @Column(name = "id")
     private int id;
 
     @Column(name = "username")
@@ -23,13 +25,26 @@ public class User {
     @Column(name = "registration_date")
     private LocalDate registrationDate;
 
-    public User() {}
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-    public User(String username, String password, int age, LocalDate registrationDate) {
-        this.username = username;
-        this.password = password;
-        this.age = age;
-        this.registrationDate = registrationDate;
+    @Column(name = "salary")
+    private Double salary;
+
+    public User(String user2, String pass2, int i, LocalDate now) {}
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("id=").append(id);
+        sb.append(", username='").append(username).append('\'');
+        sb.append(", password='").append(password).append('\'');
+        sb.append(", age=").append(age);
+        sb.append(", registrationDate=").append(registrationDate);
+        sb.append(", phoneNumber='").append(phoneNumber).append('\'');
+        sb.append(", salary=").append(salary);
+        sb.append('}');
+        return sb.toString();
     }
 
     public int getId() {
@@ -68,19 +83,16 @@ public class User {
         return registrationDate;
     }
 
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
     public void setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
     }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("User{");
-        sb.append("id=").append(id);
-        sb.append(", username='").append(username).append('\'');
-        sb.append(", password='").append(password).append('\'');
-        sb.append(", age=").append(age);
-        sb.append(", registrationDate=").append(registrationDate);
-        sb.append('}');
-        return sb.toString();
-    }
 }
