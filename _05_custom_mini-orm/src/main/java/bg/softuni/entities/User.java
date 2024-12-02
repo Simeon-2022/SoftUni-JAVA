@@ -31,7 +31,17 @@ public class User {
     @Column(name = "salary")
     private Double salary;
 
-    public User(String user2, String pass2, int i, LocalDate now) {}
+    public User(String username, String password, int age, LocalDate registrationDate) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.registrationDate = registrationDate;
+    }
+
+    public User() {
+
+    }
 
     @Override
     public String toString() {
